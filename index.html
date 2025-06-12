@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Feliz Dia dos Namorados</title>
   <style>
     body {
@@ -42,58 +42,36 @@
 
     canvas {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       z-index: -1;
     }
 
-    #playBtn {
-      background-color: #ff4d6d;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: white;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px #00000040;
-      margin-bottom: 30px;
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
+
   <h1>Feliz Dia dos Namorados 💘</h1>
-  <p>
-    Obrigada por estar sempre ao meu lado, mesmo nos momentos mais difíceis.<br />
-    Saiba que você e muito especial para mim, amo suas loucuras suas manias, defeitos,
-    qualidades tudo.<br />
-    Te amo Nenca❤️!
-  </p>
-
-  <!-- Botão para tocar a música -->
-  <button id="playBtn">💖 Clique aqui para ouvir nossa música</button>
-
-  <audio id="music" loop>
-    <source src="paartilhar.mp3" type="audio/mpeg" />
-    Seu navegador não suporta áudio HTML5.
-  </audio>
-
+  <p>Obrigada por estar sempre ao meu lado, mesmo nos momentos mais difíceis.<br> 
+     Saiba que você e muito especial para mim,amo suas loucuras suas manias,defeitos,qualidades tudo.<br>
+     Te amo Nenca❤️!</p>
   <!-- Galeria de fotos -->
   <div class="gallery">
-    <img src="foto1.jpg" alt="Nosso momento 1" />
-    <img src="foto2.jpg" alt="Nosso momento 2" />
-    <img src="foto3.jpg" alt="Nosso momento 3" />
+    <img src="foto1.jpg" alt="Nosso momento 1">
+    <img src="foto2.jpg" alt="Nosso momento 2">
+    <img src="foto3.jpg" alt="Nosso momento 3">
   </div>
+
+
+
+<button onclick="document.getElementById('music').play()">💖 Clique para ouvir a música</button>
+
 
   <!-- Corações caindo -->
   <canvas id="canvas"></canvas>
   <script>
-    // Botão para tocar música
-    document.getElementById('playBtn').addEventListener('click', () => {
-      document.getElementById('music').play();
-      document.getElementById('playBtn').style.display = 'none';
-    });
-
-    // Corações caindo
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let hearts = [];
@@ -109,8 +87,8 @@
         this.speed = Math.random() * 2 + 0.5;
       }
       draw() {
-        ctx.font = this.size + 'px serif';
-        ctx.fillText('❤️', this.x, this.y);
+        ctx.font = this.size + "px serif";
+        ctx.fillText("❤️", this.x, this.y);
       }
       update() {
         this.y += this.speed;
@@ -138,12 +116,6 @@
 
     createHearts();
     animate();
-
-    // Atualiza o tamanho do canvas ao redimensionar a janela
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
   </script>
 </body>
 </html>
